@@ -1,5 +1,27 @@
 # Warrior
 its a 2D Platformer Game
+# How To Play
+- WASD for movement.
+- Shift key to start Dash
+- Mouse for Dash Direction 
+- Left Mouse button for Attack
+# Fetaures
+- Can Do Dash with after Images.
+- Can Do Wall Jumping.
+- Can Do Wall Sliding.
+- Can DO Wall Grabing.
+- Can Crouch and Move.
+- Can Attack using Sword.
+- Can Collect collictable Items like Power_Ups and Keys.
+- Accurate Enenmy Aiming System.
+- AI enemy with idle, partol, Look out, Dodge and shoot states.
+# Power Ups
+- Invisibility Power Up
+# Design Pattern
+- FSM(Finite State Machine)
+- Singleton
+- Object Pooling
+- MVC
 
 # GamePlay
 
