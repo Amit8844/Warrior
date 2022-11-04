@@ -6,6 +6,7 @@ its a 2D Platformer Game
 - Mouse for Dash Direction 
 - Left Mouse button for Attack
 # Fetaures
+- Unity's New Input System.
 - Can Do Dash with after Images.
 - Can Do Wall Jumping.
 - Can Do Wall Sliding.
