@@ -10,6 +10,7 @@ TagManager:
   - Invisible
   - Fall
   - Key
+  - Gems
   layers:
   - Default
   - TransparentFX

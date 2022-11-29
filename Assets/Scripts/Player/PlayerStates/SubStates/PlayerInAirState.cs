@@ -83,28 +83,39 @@ public class PlayerInAirState : PlayerState {
 
 		CheckJumpMultiplier();
 
-		if (player.InputHandler.AttackInputs[(int)CombatInputs.primary]) {
+		if (player.InputHandler.AttackInputs[(int)CombatInputs.primary]) 
+		{
 			stateMachine.ChangeState(player.PrimaryAttackState);
-		} else if (player.InputHandler.AttackInputs[(int)CombatInputs.secondary]) {
+		} else if (player.InputHandler.AttackInputs[(int)CombatInputs.secondary]) 
+		{
 			stateMachine.ChangeState(player.SecondaryAttackState);
-		} else if (isGrounded && Movement?.CurrentVelocity.y < 0.01f) {
+		} else if (isGrounded && Movement?.CurrentVelocity.y < 0.01f) 
+		{
 			stateMachine.ChangeState(player.LandState);
-		} else if (isTouchingWall && !isTouchingLedge && !isGrounded) {
+		} else if (isTouchingWall && !isTouchingLedge && !isGrounded)
+		{
 			stateMachine.ChangeState(player.LedgeClimbState);
-		} else if (jumpInput && (isTouchingWall || isTouchingWallBack || wallJumpCoyoteTime)) {
+		} else if (jumpInput && (isTouchingWall || isTouchingWallBack || wallJumpCoyoteTime))
+		{
 			StopWallJumpCoyoteTime();
 			isTouchingWall = CollisionSenses.WallFront;
 			player.WallJumpState.DetermineWallJumpDirection(isTouchingWall);
 			stateMachine.ChangeState(player.WallJumpState);
-		} else if (jumpInput && player.JumpState.CanJump()) {
+
+		} else if (jumpInput && player.JumpState.CanJump())
+		{
 			stateMachine.ChangeState(player.JumpState);
-		} else if (isTouchingWall && grabInput && isTouchingLedge) {
+		} else if (isTouchingWall && grabInput && isTouchingLedge) 
+		{
 			stateMachine.ChangeState(player.WallGrabState);
-		} else if (isTouchingWall && xInput == Movement?.FacingDirection && Movement?.CurrentVelocity.y <= 0) {
+		} else if (isTouchingWall && xInput == Movement?.FacingDirection && Movement?.CurrentVelocity.y <= 0)
+		{
 			stateMachine.ChangeState(player.WallSlideState);
-		} else if (dashInput && player.DashState.CheckIfCanDash()) {
+		} else if (dashInput && player.DashState.CheckIfCanDash())
+		{
 			stateMachine.ChangeState(player.DashState);
-		} else {
+		} else
+		{
 			Movement?.CheckIfShouldFlip(xInput);
 			Movement?.SetVelocityX(playerData.movementVelocity * xInput);
 
@@ -116,10 +127,13 @@ public class PlayerInAirState : PlayerState {
 
 	private void CheckJumpMultiplier() {
 		if (isJumping) {
-			if (jumpInputStop) {
+			if (jumpInputStop) 
+			{
 				Movement?.SetVelocityY(Movement.CurrentVelocity.y * playerData.variableJumpHeightMultiplier);
 				isJumping = false;
-			} else if (Movement.CurrentVelocity.y <= 0f) {
+			} 
+			else if (Movement.CurrentVelocity.y <= 0f)
+			{
 				isJumping = false;
 			}
 
@@ -130,15 +144,18 @@ public class PlayerInAirState : PlayerState {
 		base.PhysicsUpdate();
 	}
 
-	private void CheckCoyoteTime() {
-		if (coyoteTime && Time.time > startTime + playerData.coyoteTime) {
+	private void CheckCoyoteTime()
+	{
+		if (coyoteTime && Time.time > startTime + playerData.coyoteTime) 
+		{
 			coyoteTime = false;
 			player.JumpState.DecreaseAmountOfJumpsLeft();
 		}
 	}
 
 	private void CheckWallJumpCoyoteTime() {
-		if (wallJumpCoyoteTime && Time.time > startWallJumpCoyoteTime + playerData.coyoteTime) {
+		if (wallJumpCoyoteTime && Time.time > startWallJumpCoyoteTime + playerData.coyoteTime) 
+		{
 			wallJumpCoyoteTime = false;
 		}
 	}

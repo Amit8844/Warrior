@@ -8,8 +8,7 @@ public class Matka : MonoBehaviour, IDamageable
     [SerializeField] private GameObject bloodObjects;
     [SerializeField] private GameObject powerUp;
 
-    
-     private Animator anim;
+    private Animator anim;
 
     private void Awake()
     {

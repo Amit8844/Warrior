@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class PlayerJumpState : PlayerAbilityState {
+public class PlayerJumpState : PlayerAbilityState 
+{
 	private int amountOfJumpsLeft;
 
-	public PlayerJumpState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName) {
+	public PlayerJumpState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+	{
 		amountOfJumpsLeft = playerData.amountOfJumps;
 	}
 
@@ -19,10 +21,14 @@ public class PlayerJumpState : PlayerAbilityState {
 		player.InAirState.SetIsJumping();
 	}
 
-	public bool CanJump() {
-		if (amountOfJumpsLeft > 0) {
+	public bool CanJump() 
+	{
+		if (amountOfJumpsLeft > 0)
+		{
 			return true;
-		} else {
+		} 
+		else
+		{
 			return false;
 		}
 	}
